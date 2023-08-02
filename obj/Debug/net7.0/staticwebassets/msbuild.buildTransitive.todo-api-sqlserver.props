@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\todo-api-sqlserver.props" />
-</Project>

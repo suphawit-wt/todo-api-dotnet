@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\todo-api-sqlserver.props" />
-</Project>
