@@ -33,6 +33,10 @@ namespace todo_api_sqlserver.Controllers
             {
                 switch (ex.Message)
                 {
+                    case "401":
+                        responseMessage.Message = "Unauthorized";
+
+                        return Unauthorized(responseMessage);
                     default:
                         responseMessage.Message = "Internal Server Error";
 
@@ -65,6 +69,10 @@ namespace todo_api_sqlserver.Controllers
                         responseMessage.Message = "Bad Request";
 
                         return BadRequest(responseMessage);
+                    case "401":
+                        responseMessage.Message = "Unauthorized";
+
+                        return Unauthorized(responseMessage);
                     case "403":
                         responseMessage.Message = "Forbidden";
 
@@ -107,6 +115,10 @@ namespace todo_api_sqlserver.Controllers
                         responseMessage.Message = "Bad Request";
 
                         return BadRequest(responseMessage);
+                    case "401":
+                        responseMessage.Message = "Unauthorized";
+
+                        return Unauthorized(responseMessage);
                     default:
                         responseMessage.Message = "Internal Server Error";
 
@@ -141,6 +153,10 @@ namespace todo_api_sqlserver.Controllers
                         responseMessage.Message = "Bad Request";
 
                         return BadRequest(responseMessage);
+                    case "401":
+                        responseMessage.Message = "Unauthorized";
+
+                        return Unauthorized(responseMessage);
                     case "403":
                         responseMessage.Message = "Forbidden";
 
@@ -183,6 +199,10 @@ namespace todo_api_sqlserver.Controllers
                         responseMessage.Message = "Bad Request";
 
                         return BadRequest(responseMessage);
+                    case "401":
+                        responseMessage.Message = "Unauthorized";
+
+                        return Unauthorized(responseMessage);
                     case "403":
                         responseMessage.Message = "Forbidden";
 
