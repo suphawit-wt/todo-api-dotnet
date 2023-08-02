@@ -4193,11 +4193,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\BeBetter\\Documents\\workdev\\todo-api-sqlserver\\todo-api-sqlserver.csproj",
+      "projectUniqueName": "C:\\Users\\BeBetter\\Documents\\repo\\todo-api-sqlserver\\todo-api-sqlserver.csproj",
       "projectName": "todo-api-sqlserver",
-      "projectPath": "C:\\Users\\BeBetter\\Documents\\workdev\\todo-api-sqlserver\\todo-api-sqlserver.csproj",
+      "projectPath": "C:\\Users\\BeBetter\\Documents\\repo\\todo-api-sqlserver\\todo-api-sqlserver.csproj",
       "packagesPath": "C:\\Users\\BeBetter\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\BeBetter\\Documents\\workdev\\todo-api-sqlserver\\obj\\",
+      "outputPath": "C:\\Users\\BeBetter\\Documents\\repo\\todo-api-sqlserver\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\BeBetter\\AppData\\Roaming\\NuGet\\NuGet.Config",

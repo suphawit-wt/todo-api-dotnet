@@ -7,6 +7,6 @@ namespace todo_api_sqlserver.Services.Auth
     {
         Task<String> Login(LoginRequest req);
         Task Register(User req);
-        String GenerateAccessToken(User user);
+        int GetUserId();
     }
 }

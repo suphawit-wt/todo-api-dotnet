@@ -13,11 +13,13 @@ namespace todo_api_sqlserver.Services.Auth
     {
         private readonly DataContext _dbcontext;
         private IConfiguration _config;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public AuthService(DataContext dbcontext, IConfiguration config)
+        public AuthService(DataContext dbcontext, IConfiguration config, IHttpContextAccessor httpContextAccessor)
         {
             _dbcontext = dbcontext;
             _config = config;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<string> Login(LoginRequest req)
@@ -60,7 +62,16 @@ namespace todo_api_sqlserver.Services.Auth
             await _dbcontext.SaveChangesAsync();
         }
 
-        public string GenerateAccessToken(User user)
+        public int GetUserId()
+        {
+            var claims = _httpContextAccessor?.HttpContext?.User.Identity as ClaimsIdentity;
+            var claimUserId = claims?.FindFirst("user_id")?.Value ?? throw new Exception("401");
+            int userId = int.Parse(claimUserId);
+
+            return userId;
+        }
+
+        private string GenerateAccessToken(User user)
         {
             List<Claim> claims = new List<Claim>
             {

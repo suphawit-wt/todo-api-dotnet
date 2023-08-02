@@ -10,7 +10,7 @@ namespace todo_api_sqlserver.Models
         public required string Title { get; set; }
         [Required]
         public required bool Is_Done { get; set; }
-        [Required]
-        public required int User_Id { get; set; }
+
+        public int User_Id { get; set; }
     }
 }

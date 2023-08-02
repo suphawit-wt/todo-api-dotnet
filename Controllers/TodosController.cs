@@ -65,6 +65,10 @@ namespace todo_api_sqlserver.Controllers
                         responseMessage.Message = "Bad Request";
 
                         return BadRequest(responseMessage);
+                    case "403":
+                        responseMessage.Message = "Forbidden";
+
+                        return StatusCode(403, responseMessage);
                     case "404":
                         responseMessage.Message = "Not Found";
 
@@ -137,6 +141,10 @@ namespace todo_api_sqlserver.Controllers
                         responseMessage.Message = "Bad Request";
 
                         return BadRequest(responseMessage);
+                    case "403":
+                        responseMessage.Message = "Forbidden";
+
+                        return StatusCode(403, responseMessage);
                     case "404":
                         responseMessage.Message = "Not Found";
 
@@ -175,6 +183,10 @@ namespace todo_api_sqlserver.Controllers
                         responseMessage.Message = "Bad Request";
 
                         return BadRequest(responseMessage);
+                    case "403":
+                        responseMessage.Message = "Forbidden";
+
+                        return StatusCode(403, responseMessage);
                     case "404":
                         responseMessage.Message = "Not Found";
 

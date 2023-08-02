@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "A5ZHkt8DlI3rCN5iuj1cfQAIpZXxoa+aGwVGjKD3ynniZC6THa0Ox7T/ufp1lGniJcvr3sAuf4Q02RrDg/HkDQ==",
+  "dgSpecHash": "H7J7lzxW2MuPOTJxc4ED1xiS/XpcbWWIaNpdQlhJ5kmXovHQBgjo6N/j2GoIggyU6nW96P9bnpmG1KyaooEQ+g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\BeBetter\\Documents\\workdev\\todo-api-sqlserver\\todo-api-sqlserver.csproj",
+  "projectFilePath": "C:\\Users\\BeBetter\\Documents\\repo\\todo-api-sqlserver\\todo-api-sqlserver.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\BeBetter\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\BeBetter\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
