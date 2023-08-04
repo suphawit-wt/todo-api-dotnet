@@ -33,7 +33,7 @@ namespace todo_api_sqlserver.Services.Auth
                 throw new Exception("401");
             }
 
-            var accessToken = GenerateAccessToken(user);
+            var accessToken = GenerateAccessToken(user.Id);
 
             return accessToken;
         }
@@ -71,11 +71,11 @@ namespace todo_api_sqlserver.Services.Auth
             return userId;
         }
 
-        private string GenerateAccessToken(User user)
+        private string GenerateAccessToken(int UserId)
         {
             List<Claim> claims = new List<Claim>
             {
-                new Claim("user_id", user.Id.ToString())
+                new Claim("user_id", UserId.ToString())
             };
 
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("JWT:Secret").Value!));
