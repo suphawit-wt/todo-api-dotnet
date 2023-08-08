@@ -1,4 +1,8 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using TodoApp.Api.Filters;
 using TodoApp.Core.Constants;
 using TodoApp.Core.Interfaces.Repositories;
 using TodoApp.Core.Interfaces.Services;
@@ -11,6 +15,23 @@ var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager _configs = builder.Configuration;
 
 string[] CORS_ORIGINS = _configs.GetSection("Cors:AllowedOrigins").Get<string[]>() ?? new string[] { "" };
+
+// Disabled default model invalid response
+builder.Services.Configure<ApiBehaviorOptions>(options =>
+{
+    options.SuppressModelStateInvalidFilter = true;
+});
+
+// Configure Controllers and Json Serializer Options
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add(new ModelStateFilter());
+}
+).AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+    options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+});
 
 // Configure CORS
 builder.Services.AddCors(options =>
