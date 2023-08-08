@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using TodoApp.Api.Filters;
 using TodoApp.Api.Middleware;
 using TodoApp.Core.Constants;
@@ -69,6 +70,36 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Const.JWT_SECRET)),
         ClockSkew = TimeSpan.Zero
     };
+});
+
+// Add Swagger API Documentation
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Version = "1.0.0",
+        Title = "Todo API .NET",
+        Description = "This is CRUD Todo API project using .NET, SQL Server, Entity Framework, xUnit, Moq, Docker, JWT and Swagger",
+    });
+
+    options.AddSecurityDefinition(JwtBearerDefaults.AuthenticationScheme, new OpenApiSecurityScheme
+    {
+        BearerFormat = "JWT",
+        Name = "JWT Authentication",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.Http,
+        Scheme = JwtBearerDefaults.AuthenticationScheme,
+        Description = "Put **_ONLY_** your JWT Bearer token in textbox below!",
+
+        Reference = new OpenApiReference
+        {
+            Id = JwtBearerDefaults.AuthenticationScheme,
+            Type = ReferenceType.SecurityScheme
+        }
+    });
+
+    options.OperationFilter<SwaggerAuthorizeFilter>();
 });
 
 // Add Database Context using SQL Server Connection
