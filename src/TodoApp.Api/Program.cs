@@ -8,6 +8,22 @@ using TodoApp.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
+ConfigurationManager _configs = builder.Configuration;
+
+string[] CORS_ORIGINS = _configs.GetSection("Cors:AllowedOrigins").Get<string[]>() ?? new string[] { "" };
+
+// Configure CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy", builder =>
+    {
+        builder.WithOrigins(CORS_ORIGINS)
+               .WithMethods("GET", "POST", "PUT", "DELETE")
+               .WithHeaders("Authorization", "Content-Type")
+               .AllowCredentials();
+    });
+});
+
 // Add Database Context using SQL Server Connection
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(Const.DB_CONN));
 
@@ -27,6 +43,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("CorsPolicy");
 app.UseHttpsRedirection();
 app.MapControllers();
 
