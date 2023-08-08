@@ -1,0 +1,19 @@
+{
+    "name": "Todo API .NET",
+    "dockerComposeFile": "../compose.yaml",
+    "service": "app",
+    "workspaceFolder": "/app",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-dotnettools.vscode-dotnet-runtime",
+                "ms-dotnettools.csharp",
+                "ms-dotnettools.csdevkit",
+                "ms-dotnettools.vscodeintellicode-csharp",
+                "ms-azuretools.vscode-docker",
+                "github.vscode-github-actions",
+                "aaron-bond.better-comments"
+            ]
+        }
+    }
+}

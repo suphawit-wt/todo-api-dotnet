@@ -1,0 +1,29 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - db
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-CU6-ubuntu-20.04
+    restart: unless-stopped
+    ports:
+      - "1433:1433"
+    volumes:
+      - db-data:/var/opt/mssql
+    environment:
+      - MSSQL_SA_PASSWORD=${DB_PASSWORD}
+      - ACCEPT_EULA=Y
+
+volumes:
+  db-data:

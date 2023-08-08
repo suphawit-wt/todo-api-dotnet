@@ -1,0 +1,12 @@
+FROM mcr.microsoft.com/dotnet/sdk:7.0
+
+WORKDIR /app
+
+COPY . .
+
+RUN dotnet tool install --global dotnet-ef --version 7.0.9
+ENV PATH="$PATH:/root/.dotnet/tools"
+
+EXPOSE 5000
+
+CMD ["sleep", "infinity"]
