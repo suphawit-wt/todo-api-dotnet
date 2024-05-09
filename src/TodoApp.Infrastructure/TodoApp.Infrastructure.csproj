@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <RootNamespace>TodoApp.Infrastructure</RootNamespace>
-    <TargetFramework>net7.0</TargetFramework>
-    <NetCoreVersion>7.0.9</NetCoreVersion>
+    <TargetFramework>net8.0</TargetFramework>
+    <NetCoreVersion>8.0.4</NetCoreVersion>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
